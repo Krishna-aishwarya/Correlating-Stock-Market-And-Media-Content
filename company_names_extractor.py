@@ -13,6 +13,7 @@ def get_companies_and_stocks_names(tweet_content):
     for ner_dict in ner_results:
         if "ORG" in ner_dict['entity']:
             ner_companies_n_stocks.append(ner_dict['word'])
+    # print('Company names extractor')
             
             
             
