@@ -19,17 +19,15 @@ def get_market_values(date, companies_n_stocks_names):
     # print("get Market")
     for company in companies_n_stocks_names:
         company = ' '.join(companies_n_stocks_names)
+        print(company)
         ticker = get_ticker(company)
         if ticker is None:
             return None
-        data = yf.download(tickers=companies_n_stocks_names, interval = '1h', start = date - timedelta(hours=6), end = date + timedelta(hours=4))
+        print(ticker)
+        return
+        data = yf.download(tickers=ticker, interval = '1h', start = date - timedelta(hours=6), end = date + timedelta(hours=4))
         fig = go.Figure(data = [go.Candlestick(x=data.index, open = data['Open'],high = data['High'],low=data['Low'],close = data['Close'])])
         fig.show()
-    
-
-    
-    
-    #get_market_values(datetime.now() - timedelta(days=10), "BTC")
     
 
             
